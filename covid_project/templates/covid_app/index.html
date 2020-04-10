@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>covid-19 India</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <!-- <nav class="navbar navbar-dark bg-primary"> -->
+      <h1>COVID-19 Project</h1>
+        <ul class = "nav navbar-nav">
+          <li><a href="/about">About</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>COVID-19 India</h1>
+        <p>Maintain Social Distance</p>
+        <em><p>The dataset is downloaded from kaggle It can be found at <a href="https://www.kaggle.com/sudalairajkumar/covid19-in-india">Covid-19 India</a> </p></em>
+        <a href="https://www.facebook.com/utpalitsme" class="fa fa-facebook"> Facebook</a>
+        <a href="https://www.linkedin.com/in/utpal-singh-24bb45193" class="fa fa-linkedin"> Linkedin</a>
+        <a href="https://www.github.com/singhutpal" class="fa fa-github"> Github</a>
+        <br></br>
+        <p>The data is last updated at 12:30 PM, 2020-04-10</p>
+        <p>Pardon, if any data-visualisation is not accurate, the complete website is made in 6 hrs, and is just a fun website. It is still under const. Will be updating more dynamic data</p>
+        <p>--Utpal Singh</p>
+        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
+        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
+
+      </div>
+
+    </div>
+
+
+
+    <div class="container">
+
+
+      <div class="row">
+
+        {% for data in datas %}
+
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Confirmed Cases: {{data.confirmed}}</h5>
+        <h6 class="card-title">Today's increment: {{data.day_increment_confirmed}}</h6>
+        <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Active Cases: {{data.active}}</h5>
+        <h6 class="card-title">Today's increment: {{data.day_increment_active}}</h6>
+        <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Recovered Cases: {{data.recovered}}</h5>
+        <h6 class="card-title">Today's increment: {{data.day_increment_recovered}}</h6>
+        <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Total Deceased: {{data.deaths}}</h5>
+        <h6 class="card-title">Today's increment: {{data.day_increment_deaths}}</h6>
+        <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+
+<br></br>
+
+      <h2>Graphs, Plots</h2>
+
+      {% for anal in anals %}
+        <p>Daily Confirmed Cases</p>
+        <img src="{{anal.daily_confirm.url}}" alt="" class="rounded mx-auto d-block">
+        <p>Monthly Confirmed Cases</p>
+        <img src="{{anal.monthly_confirm.url}}" alt="" class="rounded mx-auto d-block">
+        <p>Daily Recoveries</p>
+        <img src="{{anal.daily_recov.url}}" alt="" class="rounded mx-auto d-block">
+        <p>Daily Deaths</p>
+        <img src="{{anal.daily_decease.url}}" alt="" class="rounded mx-auto d-block">
+        <p>Daily Hospitalized</p>
+        <img src="{{anal.daily_hospitalize.url}}" alt="" class="rounded mx-auto d-block">
+        <p>Age distribution</p>
+        <img src="{{anal.age_distribution.url}}" alt="" class="rounded mx-auto d-block">
+        {% endfor %}
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer font-small teal pt-4">
+
+      <!-- Footer Text -->
+      <div class="container-fluid text-center text-md-left">
+
+        <!-- Grid row -->
+        <!-- <div class="row"> -->
+
+          <!-- Grid column -->
+          <div class=>
+
+            <!-- Content -->
+            <h5 class="text-uppercase font-weight-bold">Thanks for visiting the website</h5>
+            <p>The dataset is obtained from Kaggle. The link to the data is <a href="https://www.kaggle.com/sudalairajkumar/covid19-in-india">Kaggle Covid-19 India</a> </p>
+            <p>The virus came from China</p>
+            <p>Freeboarders, Trump never threatened India <a href="https://www.indiatoday.in/news-analysis/story/donald-trump-india-hydroxychloroquine-export-retaliation-full-statement-1664406-2020-04-07"> Read here, What went on in conference </a> </p>
+
+          </div>
+          <!-- Grid column -->
+
+          <hr class="clearfix w-100 d-md-none pb-3">
+
+          <!-- Grid column -->
+          <!-- <div class="col-md-6 mb-md-0 mb-3">
+
+            Content
+            <! <h5 class="text-uppercase font-weight-bold">Footer text 2</h5>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio deserunt fuga perferendis modi earum
+              commodi aperiam temporibus quod nulla nesciunt aliquid debitis ullam omnis quos ipsam, aspernatur id
+              excepturi hic.</p> -->
+
+          </div>
+          <!-- Grid column -->
+
+        <!-- </div> -->
+        <!-- Grid row -->
+
+      <!-- </div> -->
+      <!-- Footer Text -->
+
+      <!-- Copyright -->
+      <!-- <div class="footer-copyright text-center py-3">© 2020 Copyright: -->
+        <!-- <a href="https://mdbootstrap.com/"> MDBootstrap.com</a> -->
+      <!-- </div> -->
+      <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+
+  </body>
+
+
+</html>

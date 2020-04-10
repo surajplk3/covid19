@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>COVID-19 Dataset</title>
+  </head>
+  <body>
+    <p>This is para</p>
+    {% for anals in anal %}
+    <img src="{{anals.cumulative_conf.url}}" alt="">
+    {% endfor %}
+  </body>
+</html>
